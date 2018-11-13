@@ -1,4 +1,5 @@
 import React from 'react';
+import { findByAttr } from './testUtils';
 import Congrats from '../Congrats';
 
 const setup = (props={}) => {
