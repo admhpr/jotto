@@ -9,5 +9,8 @@ module.exports = {
             '<rootDir>src/__tests__/setup/',
         ],
     moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
-    testURL: "http://localhost:3000"
+    testURL: "http://localhost:3000",
+    transform: {
+        "^.+\\.jsx?$": "babel-jest"
+    }
 }
