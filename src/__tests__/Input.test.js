@@ -8,6 +8,34 @@ import {
     shallow
 } from 'enzyme';
 
-test('', () => {
-    
+describe('render', () => {
+    describe('word has not been guessed', () => {
+        test('renders component without error', () => {
+            
+        })
+        test('renders input box', () => {
+            
+        })
+        test('renders submit button', () => {
+            
+        })
+    })
+    describe('word has been guessed', () => {
+
+        test('renders component without error', () => {
+
+        })
+        test('renders not input box', () => {
+
+        })
+        test('renders not submit button', () => {
+
+        })
+
+
+    })
+})
+
+describe('update state', () => {
+
 })
