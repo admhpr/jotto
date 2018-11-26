@@ -37,15 +37,24 @@ describe('render', () => {
         })
     })
     describe('word has been guessed', () => {
-
+        let wrapper;
+        beforeEach(() => {
+            const initialState = {
+                success: true
+            }
+            wrapper = setup(initialState)
+        })
         test('renders component without error', () => {
-
+            const component = findByAttr(wrapper, 'component-input')
+            expect(component.length).toBe(1)
         })
         test('renders not input box', () => {
-
+            const component = findByAttr(wrapper, 'component-box')
+            expect(component.length).toBe(0)
         })
         test('renders not submit button', () => {
-
+             const component = findByAttr(wrapper, 'submit-button')
+             expect(component.length).toBe(0)
         })
 
 
