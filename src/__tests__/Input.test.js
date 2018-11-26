@@ -1,12 +1,20 @@
 import React from 'react';
 import {
     findByAttr,
-    checkProps
+    checkProps,
+    storeFactory
 } from './testUtils';
 import Input from '../Input';
 import {
     shallow
 } from 'enzyme';
+
+const setup  = (initialState={}) => {
+    const store = storeFactory(initialState)
+    const wrapper = shallow(<Input store={store}/>).dive();
+    
+}
+
 
 describe('render', () => {
     describe('word has not been guessed', () => {
