@@ -44,6 +44,7 @@
     "ajv": "^6.5.3",
     "prop-types": "^15.6.2",
     "react-redux": "^5.1.1",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   }
 }
