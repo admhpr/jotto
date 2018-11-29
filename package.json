@@ -31,6 +31,7 @@
     "install": "^0.12.1",
     "jest": "^22.4.4",
     "jest-enzyme": "^6.0.4",
+    "moxios": "^0.4.0",
     "npm": "^6.4.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.2",
@@ -42,6 +43,7 @@
   },
   "dependencies": {
     "ajv": "^6.5.3",
+    "axios": "^0.18.0",
     "prop-types": "^15.6.2",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
