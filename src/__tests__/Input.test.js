@@ -4,7 +4,7 @@ import {
     checkProps,
     storeFactory
 } from './testUtils';
-import Input from '../Input';
+import Input, {UnconnectedInput} from '../Input';
 import {
     shallow
 } from 'enzyme';
@@ -71,5 +71,28 @@ describe('render', () => {
         const wrapper = setup()
         const guessWordProp = wrapper.instance().props.guessWord
         expect(guessWordProp).toBeInstanceOf(Function)
+    })
+})
+
+describe('`guessWord` action creator call', () => {
+    test('calls `guessWord` when button is clicked', () => {
+        const guessWordMock = jest.fn()
+        const props = {
+            guessWord: guessWordMock,
+        }
+  
+
+        // set up app component with guessWordMock as the guessWord pop
+        const wrapper = shallow(<UnconnectedInput {...props}/>)
+
+        // simulate click
+        const submitButton = findByAttr(wrapper, 'submit-button')
+        submitButton.simulate('click')
+
+        //check to see if mock ran
+        const guessWordCount = guessWordMock.mock.calls.length
+
+        expect(guessWordCount).toBe(1)
+
     })
 })
