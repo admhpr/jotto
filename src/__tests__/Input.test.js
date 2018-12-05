@@ -75,24 +75,33 @@ describe('render', () => {
 })
 
 describe('`guessWord` action creator call', () => {
-    test('calls `guessWord` when button is clicked', () => {
-        const guessWordMock = jest.fn()
+    let guessedWordMock;
+    let wrapper;
+    let guessedWord = 'train';
+    beforeEach(() => {
+        guessedWordMock = jest.fn()
         const props = {
-            guessWord: guessWordMock,
+            guessWord: guessedWordMock,
         }
-  
-
-        // set up app component with guessWordMock as the guessWord pop
-        const wrapper = shallow(<UnconnectedInput {...props}/>)
-
+        // set up app component with guessWordMock as guessWord prop
+        wrapper = shallow( <UnconnectedInput {...props}/>)
+        //add value to input box
+        wrapper.instance().inputBox.current = {value: guessedWord}
         // simulate click
         const submitButton = findByAttr(wrapper, 'submit-button')
-        submitButton.simulate('click')
+        submitButton.simulate('click', {preventDefault(){}})
 
+    })
+    test('calls `guessWord` when button is clicked', () => {
+  
         //check to see if mock ran
-        const guessWordCount = guessWordMock.mock.calls.length
+        const guessWordCount = guessedWordMock.mock.calls.length
 
         expect(guessWordCount).toBe(1)
 
+    })
+    test('calls `guessWord` with input as argument', () => {
+        const guessWordArg = guessedWordMock.mock.calls[0][0]
+        expect(guessWordArg).toBe(guessedWord)
     })
 })

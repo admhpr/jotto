@@ -4,11 +4,24 @@ import {guessWord} from './actions'
 
 
 export class UnconnectedInput extends Component{
+    constructor(props){
+        super(props);
+        this.inputBox = React.createRef();
+        this.submitGuessedWord = this.submitGuessedWord.bind(this)
+    }
+    submitGuessedWord(evt){
+        // prevent default
+        evt.preventDefault()
+        const guessedWord = this.inputBox.current.value
+        if(guessedWord && guessedWord.length > 0){
+            this.props.guessWord(guessedWord)
+        }  
+    }
     render(){
         const contents = this.props.success ? null : (
             <form>
-                <input id="word-guess" placeholder="enter a guess" data-test="component-box"/>
-                <button type="submit" data-test="submit-button" onClick={() => this.props.guessWord('train')}>
+                <input ref={this.inputBox} id="word-guess" placeholder="enter a guess" data-test="component-box"/>
+                <button type="submit" data-test="submit-button" onClick={this.submitGuessedWord}>
                     Submit
                 </button>
             </form>
