@@ -4,18 +4,21 @@ import {getSecretWord} from './actions'
 import GuessedWords from './GuessedWords';
 import Congrats from './Congrats';
 import Input from "./Input";
+import { Columns } from "react-bulma-components/full";
 export class UnconnectedApp extends Component {
     componentDidMount(){
         this.props.getSecretWord();
     }
     render() {
         return (
-            <div className="App">
-            <h1>Jotto</h1>
-            <Congrats success={this.props.success}></Congrats>
-            <Input/>
-            <GuessedWords guessedWords={this.props.guessedWords}></GuessedWords>
-            </div>
+            <Columns> 
+                <div className="App">
+                <h1>Jotto</h1>
+                <Congrats success={this.props.success}></Congrats>
+                <Input/>
+                <GuessedWords guessedWords={this.props.guessedWords}></GuessedWords>
+                </div>
+            </Columns>
         );
     }
 }
