@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {guessWord} from './actions'
-import { Button, Columns } from "react-bulma-components/full";
+import { Button } from "react-bulma-components/full";
+
 
 export class UnconnectedInput extends Component{
     constructor(props){
@@ -20,12 +21,14 @@ export class UnconnectedInput extends Component{
     }
     render(){
         const contents = this.props.success ? null : (
-            <form>
-                <input ref={this.inputBox} id="word-guess" placeholder="enter a guess" data-test="component-box"/>
-                <Button type="submit" data-test="submit-button" onClick={this.submitGuessedWord}>
-                    Submit
-                </Button>
-            </form>
+            <div>
+                <form>
+                    <input ref={this.inputBox} id="word-guess" placeholder="enter a guess" data-test="component-box"/>
+                    <Button type="submit" data-test="submit-button" onClick={this.submitGuessedWord}>
+                        Submit
+                    </Button>
+                </form>
+            </div>
         );
         return( 
             <div data-test="component-input">
